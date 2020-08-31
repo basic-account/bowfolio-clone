@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
+import '../repository/profiles/profile_entity.dart';
 
 class Profile extends Equatable {
   //First Name
@@ -27,11 +28,61 @@ class Profile extends Equatable {
     this.picture,
     this.interestIds,
     this.projectIds,
-    String id,
   });
 
   @override
   List<Object> get props =>
       [first, last, email, bio, title, picture, interestIds, projectIds];
 
+  Profile copyWith({
+    String first,
+    String last,
+    String email,
+    String bio,
+    String title,
+    String picture,
+    List<String> interestIds,
+    List<String> projectIds,
+  }) {
+    return Profile(
+      first: first ?? this.first,
+      last: last ?? this.last,
+      email: email ?? this.email,
+      bio: bio ?? this.bio,
+      title: title ?? this.title,
+      picture: picture ?? this.picture,
+      interestIds: interestIds ?? this.interestIds,
+      projectIds: projectIds ?? this.projectIds,
+    );
+  }
+
+  @override
+  String toString() {
+    return 'Profile { first: $first, last: $last, email: $email, title: $title, picture: $picture, interestIds: $interestIds, projectIds: $projectIds }';
+  }
+
+  ProfileEntity toEntity() {
+    return ProfileEntity(
+      first,
+      last,
+      email,
+      bio,
+      title,
+      picture,
+      interestIds,
+      projectIds,
+    );
+  }
+
+  static fromEntity(ProfileEntity entity) {
+    return Profile(
+      first: entity.first ?? 'John' ,
+      last: entity.last ?? 'Doe',
+      email: entity.email,
+      title: entity.title ?? 'Jobless',
+      picture: entity.picture ?? 'fake.jpg',
+      interestIds: entity.interestIds ?? ['none'],
+      projectIds: entity.projectIds ?? ['none'],
+    );
+  }
 }
