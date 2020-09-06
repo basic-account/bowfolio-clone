@@ -10,7 +10,6 @@ import 'repository/profiles/profiles_concrete_repo.dart';
 import 'repository/profiles/profiles_file_storage.dart';
 import 'utils/routes.dart';
 
-
 void main() {
   BlocSupervisor.delegate = SimpleBlocDelegate();
 
@@ -19,13 +18,11 @@ void main() {
       providers: [
         BlocProvider<ProfilesBloc>(
           create: (context) => ProfilesBloc(
-            //TODO
             profilesRepository: const ProfilesConcreteRepository(
-              localStorage: const ProfilesFileStorage(
-                '__profiles__',
-                getApplicationDocumentsDirectory,
-              )
-            ),
+                localStorage: const ProfilesFileStorage(
+              '__bow_profiles__',
+              getApplicationDocumentsDirectory,
+            )),
           )..add(LoadProfiles()),
         ),
       ],
@@ -37,13 +34,10 @@ void main() {
 class BowfolioApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Bowfolios App',
-      routes: {
-        Routes.home: (context) {
-          return HomePage();
-        }
+    return MaterialApp(title: 'Bowfolios App', routes: {
+      Routes.home: (context) {
+        return HomePage();
       }
-    );
+    });
   }
 }

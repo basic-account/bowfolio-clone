@@ -16,6 +16,16 @@ class ProfilesWebClient implements ProfilesRepository {
             ['interest 1', 'interest 2'],
             ['project 1', 'project 2'],
           ),
+          ProfileEntity(
+            'first2',
+            'last',
+            'email2',
+            'bio',
+            'title',
+            'picture',
+            ['interest 1', 'interest 2'],
+            ['project 1', 'project 2'],
+          ),
         ]);
   }
 
