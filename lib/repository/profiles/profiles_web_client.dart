@@ -10,20 +10,21 @@ class ProfilesWebClient implements ProfilesRepository {
 
   @override
   Future<List<ProfileEntity>> loadProfiles() async {
+    print('in web');
     return Future.delayed(
       delay,
       () => [
           ProfileEntity(
             'first',
             'last',
-            'email',
+            '1',
             'bio',
             'title',
             'picture',
             //['interest 1', 'interest 2'],
             //['project 1', 'project 2'],
           ),
-          ProfileEntity(
+          /*ProfileEntity(
             'first2',
             'last2',
             'email2',
@@ -32,7 +33,7 @@ class ProfilesWebClient implements ProfilesRepository {
             'picture2',
             //['interest 1', 'interest 2'],
             //['project 1', 'project 2'],
-          ),
+          ),*/
         ]);
   }
 

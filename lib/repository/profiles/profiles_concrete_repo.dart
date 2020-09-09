@@ -20,7 +20,7 @@ class ProfilesConcreteRepository implements ProfilesRepository {
       return await localStorage.loadProfiles();
     } catch (e) {
       final profiles = await webClient.loadProfiles();
-      print('couldnt load local');
+      print('couldnt load local, loading web');
       await localStorage.saveProfiles(profiles);
       print('saved?');
 

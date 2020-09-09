@@ -35,8 +35,10 @@ class ProfilesList extends StatelessWidget {
               );
             },
           );*/
+        } else if (state is ProfilesNotLoaded) {
+          return Container(child: Text('not loaded'),); //TODO
         } else {
-          return Container(); //TODO
+          return Container(child: Text('how did you get here'),);
         }
       },
     );
