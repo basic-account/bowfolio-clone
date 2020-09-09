@@ -1,18 +1,19 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'dart:async';
+import 'package:bloc/bloc.dart';
+import 'package:meta/meta.dart';
 
-import '../../bloc/profiles/profiles_event.dart';
-import '../../bloc/profiles/profiles_state.dart';
+import 'profiles_event.dart';
+import 'profiles_state.dart';
 import '../../repository/profiles/profiles_repository.dart';
 import '../../models/profile.dart';
 
 class ProfilesBloc extends Bloc<ProfilesEvent, ProfilesState> {
   final ProfilesRepository profilesRepository;
 
-  ProfilesBloc({@required this.profilesRepository});
+  ProfilesBloc({@required this.profilesRepository}) : super(ProfilesLoading());
 
-  @override
-  ProfilesState get initialState => ProfilesLoading();
+  /*@override
+  ProfilesState get initialState => ProfilesLoading();*/
 
   @override
   Stream<ProfilesState> mapEventToState(ProfilesEvent event) async* {
@@ -30,6 +31,7 @@ class ProfilesBloc extends Bloc<ProfilesEvent, ProfilesState> {
   Stream<ProfilesState> _mapLoadProfilesToState() async* {
     try {
       final profiles = await this.profilesRepository.loadProfiles();
+      print('in loadpro');
       yield ProfilesLoaded(
         profiles.map(Profile.fromEntity).toList(),
       );

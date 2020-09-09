@@ -1,5 +1,6 @@
 import 'package:bowfolio/bloc/bloc.dart';
 import 'package:bowfolio/bloc/profiles/profiles_bloc.dart';
+import 'package:bowfolio/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -9,10 +10,13 @@ class ProfilesList extends StatelessWidget {
     return BlocBuilder<ProfilesBloc, ProfilesState>(
       builder: (context, state) {
         if (state is ProfilesLoading) {
-          return Container(); //TODO
+          return LoadingIndicator();
         } else if (state is ProfilesLoaded) {
+          print('here');
           final profiles = state.profiles;
-          return ListView.builder(
+          return Container(child: Text('init'),);
+          
+          /*ListView.builder(
             itemCount: profiles.length,
             itemBuilder: (BuildContext context, int index) {
               final profile = profiles[index];
@@ -30,7 +34,7 @@ class ProfilesList extends StatelessWidget {
                 ),*/
               );
             },
-          );
+          );*/
         } else {
           return Container(); //TODO
         }

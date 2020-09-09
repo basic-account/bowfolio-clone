@@ -11,8 +11,8 @@ class ProfileEntity {
   final String title;
   //profile picture
   final String picture;
-  final List<String> interestIds;
-  final List<String> projectIds;
+  //final List<String> interestIds;
+  //final List<String> projectIds;
 
   ProfileEntity(
     this.first,
@@ -21,8 +21,8 @@ class ProfileEntity {
     this.bio,
     this.title,
     this.picture,
-    this.interestIds,
-    this.projectIds,
+    //this.interestIds,
+    //this.projectIds,
   );
 
   @override
@@ -32,9 +32,9 @@ class ProfileEntity {
       email.hashCode ^
       bio.hashCode ^
       title.hashCode ^
-      picture.hashCode ^
-      interestIds.hashCode ^
-      projectIds.hashCode;
+      picture.hashCode;// ^
+      //interestIds.hashCode ^
+      //projectIds.hashCode;
 
   @override
   bool operator ==(Object other) =>
@@ -43,11 +43,12 @@ class ProfileEntity {
           runtimeType == other.runtimeType &&
           first == other.first &&
           last == other.last &&
+          email == other.email &&
           bio == other.bio &&
           title == other.title &&
-          picture == other.picture &&
-          interestIds == other.interestIds &&
-          projectIds == other.projectIds;
+          picture == other.picture;// &&
+          //interestIds == other.interestIds &&
+          //projectIds == other.projectIds;
 
   Map<String, Object> toJson() {
     return {
@@ -57,17 +58,17 @@ class ProfileEntity {
       'bio': bio,
       'title': title,
       'picture': picture,
-      'interestIds': interestIds,
-      'projectIds': projectIds,
+      //'interestIds': interestIds,
+      //'projectIds': projectIds,
     };
   }
 
   @override
   String toString() {
-    return 'ProfileEntity { first: $first, last: $last, email: $email, bio: $bio, title: $title, picture: $picture, interestIds: $interestIds, projectIds: $projectIds }';
+    return 'ProfileEntity { first: $first, last: $last, email: $email, bio: $bio, title: $title, picture: $picture, interestIds:';// $interestIds, projectIds: $projectIds }';
   }
 
-  static ProfileEntity fromJson(Map<String, dynamic> json) {
+  static ProfileEntity fromJson(Map<String, Object> json) {
     return ProfileEntity(
       json['first'] as String,
       json['last'] as String,
@@ -75,8 +76,8 @@ class ProfileEntity {
       json['bio'] as String,
       json['title'] as String,
       json['picture'] as String,
-      List<String>.from(json['interestIds']),
-      List<String>.from(json['projectIds']),
+      //List<String>.from(json['interestIds']),
+      //List<String>.from(json['projectIds']),
     );
   }
 }

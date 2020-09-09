@@ -16,11 +16,13 @@ class ProfilesConcreteRepository implements ProfilesRepository {
   @override
   Future<List<ProfileEntity>> loadProfiles() async {
     try {
+      print('here');
       return await localStorage.loadProfiles();
     } catch (e) {
       final profiles = await webClient.loadProfiles();
       print('couldnt load local');
       await localStorage.saveProfiles(profiles);
+      print('saved?');
 
       return profiles;
     }

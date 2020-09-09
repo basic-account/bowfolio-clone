@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:bloc/bloc.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'bloc/profiles/profiles_bloc.dart';
@@ -11,21 +12,20 @@ import 'repository/profiles/profiles_file_storage.dart';
 import 'utils/routes.dart';
 
 void main() {
-  BlocSupervisor.delegate = SimpleBlocDelegate();
+  Bloc.observer = SimpleBlocDelegate();
 
   runApp(
-    MultiBlocProvider(
-      providers: [
-        BlocProvider<ProfilesBloc>(
-          create: (context) => ProfilesBloc(
-            profilesRepository: const ProfilesConcreteRepository(
-                localStorage: const ProfilesFileStorage(
-              '__bow_profiles__',
+    BlocProvider(
+      create: (context) {
+        return ProfilesBloc(
+          profilesRepository: const ProfilesConcreteRepository(
+            localStorage: const ProfilesFileStorage(
+              '__bow9_profiles__',
               getApplicationDocumentsDirectory,
-            )),
-          )..add(LoadProfiles()),
-        ),
-      ],
+            ),
+          ),
+        )..add(LoadProfiles());
+      },
       child: BowfolioApp(),
     ),
   );
