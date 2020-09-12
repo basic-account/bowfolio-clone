@@ -20,7 +20,7 @@ void main() {
         return ProfilesBloc(
           profilesRepository: const ProfilesConcreteRepository(
             localStorage: const ProfilesFileStorage(
-              '__bow11_profiles__',
+              '__bow12_profiles__',
               getApplicationDocumentsDirectory,
             ),
           ),

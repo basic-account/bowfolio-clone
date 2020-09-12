@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
+import 'package:uuid/uuid.dart';
+
 
 import '../repository/profiles/profile_entity.dart';
 
@@ -22,7 +24,7 @@ class Profile extends Equatable {
   Profile({
     String first,
     String last,
-    @required this.email,
+    String email,
     String bio,
     String title,
     String picture,
@@ -32,7 +34,8 @@ class Profile extends Equatable {
        this.last = last ?? 'last',
        this.bio = bio ?? 'bio',
        this.title = title ?? 'title',
-       this.picture = picture ?? 'picture';
+       this.picture = picture ?? 'picture',
+       email = email ?? Uuid().v4();
 
   @override
   List<Object> get props =>

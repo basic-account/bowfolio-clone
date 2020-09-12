@@ -25,6 +25,7 @@ dependencies:
   equatable: ^1.0.0
   flutter_bloc: ^5.0.0
   path_provider: ^1.6.5
+  uuid: ^2.0.4
   flutter:
     sdk: flutter
 
