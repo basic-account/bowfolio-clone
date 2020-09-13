@@ -1,9 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
-import 'package:uuid/uuid.dart';
 
-
-import '../repository/profiles/profile_entity.dart';
 
 class Profile extends Equatable {
   //First Name
@@ -24,7 +21,7 @@ class Profile extends Equatable {
   Profile({
     String first,
     String last,
-    String email,
+    @required this.email,
     String bio,
     String title,
     String picture,
@@ -34,8 +31,7 @@ class Profile extends Equatable {
        this.last = last ?? 'last',
        this.bio = bio ?? 'bio',
        this.title = title ?? 'title',
-       this.picture = picture ?? 'picture',
-       email = email ?? Uuid().v4();
+       this.picture = picture ?? 'picture';
 
   @override
   List<Object> get props =>
@@ -68,7 +64,7 @@ class Profile extends Equatable {
     return 'Profile { first: $first, last: $last, email: $email, title: $title, picture: $picture,';// interestIds: $interestIds, projectIds: $projectIds }';
   }
 
-  ProfileEntity toEntity() {
+  /*ProfileEntity toEntity() {
     return ProfileEntity(
       first,
       last,
@@ -92,5 +88,5 @@ class Profile extends Equatable {
       //interestIds: entity.interestIds ?? ['none'],
       //projectIds: entity.projectIds ?? ['none'],
     );
-  }
+  }*/
 }
