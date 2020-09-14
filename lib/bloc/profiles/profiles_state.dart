@@ -15,9 +15,9 @@ class LoadingState extends ProfilesState {
 }
 
 class LoadedState extends ProfilesState {
-  LoadedState(this.profiles);
-
   final List<Profile> profiles;
+
+  LoadedState(this.profiles);
 
   @override
   List<Object> get props => [profiles];

@@ -1,33 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc/profiles/profiles.dart';
 import 'loading_indicator.dart';
+import '../bloc/projects/projects.dart';
 
-class ProfilesList extends StatelessWidget {
+class ProjectsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProfilesCubit, ProfilesState>(
+    return BlocBuilder<ProjectsCubit, ProjectsState>(
       builder: (context, state) {
         if (state is LoadingState) {
           return LoadingIndicator();
         } else if (state is LoadedState) {
-          final profiles = state.profiles;
+          final projects = state.projects;
           return ListView.builder(
-            itemCount: profiles.length,
+            itemCount: projects.length,
             itemBuilder: (BuildContext context, int index) {
-              final profile = profiles[index];
+              final project = projects[index];
               return Container(
                 height: 300,
                 width: 300,
                 child: Column(
                   children: [
-                    Text(profile.first),
-                    Text(profile.last),
-                    Text(profile.bio),
-                    Text(profile.email),
-                    Text(profile.picture),
-                    Text(profile.projectIds.length.toString()),
+                    Text(project.name),
+                    Text(project.profileIds[0]),
                   ],
                 ),
               );

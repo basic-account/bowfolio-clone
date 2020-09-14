@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
-
 class Profile extends Equatable {
   //First Name
   final String first;
@@ -15,8 +14,8 @@ class Profile extends Equatable {
   final String title;
   //profile picture
   final String picture;
-  //final List<String> interestIds;
-  //final List<String> projectIds;
+  final List<String> interestIds;
+  final List<String> projectIds;
 
   Profile({
     String first,
@@ -25,17 +24,19 @@ class Profile extends Equatable {
     String bio,
     String title,
     String picture,
-    //this.interestIds,
-    //this.projectIds,
+    List<String> interestIds,
+    List<String> projectIds,
   }) : this.first = first ?? 'first',
        this.last = last ?? 'last',
        this.bio = bio ?? 'bio',
        this.title = title ?? 'title',
-       this.picture = picture ?? 'picture';
+       this.picture = picture ?? 'picture',
+       this.interestIds = interestIds ?? ['interest'],
+       this.projectIds = projectIds ?? ['project'];
 
   @override
   List<Object> get props =>
-      [first, last, email, bio, title, picture, ];//interestIds, projectIds];
+      [first, last, email, bio, title, picture, interestIds, projectIds];
 
   Profile copyWith({
     String first,
@@ -44,8 +45,8 @@ class Profile extends Equatable {
     String bio,
     String title,
     String picture,
-    //List<String> interestIds,
-    //List<String> projectIds,
+    List<String> interestIds,
+    List<String> projectIds,
   }) {
     return Profile(
       first: first ?? this.first,
@@ -54,14 +55,14 @@ class Profile extends Equatable {
       bio: bio ?? this.bio,
       title: title ?? this.title,
       picture: picture ?? this.picture,
-      //interestIds: interestIds ?? this.interestIds,
-      //projectIds: projectIds ?? this.projectIds,
+      interestIds: interestIds ?? this.interestIds,
+      projectIds: projectIds ?? this.projectIds,
     );
   }
 
   @override
   String toString() {
-    return 'Profile { first: $first, last: $last, email: $email, title: $title, picture: $picture,';// interestIds: $interestIds, projectIds: $projectIds }';
+    return 'Profile { first: $first, last: $last, email: $email, title: $title, picture: $picture, interestIds: $interestIds, projectIds: $projectIds }';
   }
 
   /*ProfileEntity toEntity() {

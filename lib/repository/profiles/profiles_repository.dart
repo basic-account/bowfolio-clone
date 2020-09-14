@@ -1,6 +1,6 @@
 import '../../models/profile.dart';
 
-class ProfileRepository {
+class ProfilesRepository {
   //MovieRepository(this.client);
 
   //final Dio client;
@@ -16,8 +16,8 @@ class ProfileRepository {
             bio: 'bio',
             title: 'title',
             picture: 'picture',
-            //['interest 1', 'interest 2'],
-            //['project 1', 'project 2'],
+            interestIds: ['interest 1', 'interest 2'],
+            projectIds: ['project 1', 'project 2'],
           ),
           Profile(
             first: 'first2',
@@ -26,8 +26,8 @@ class ProfileRepository {
             bio: 'bio2',
             title: 'title2',
             picture: 'picture2',
-            //['interest 1', 'interest 2'],
-            //['project 1', 'project 2'],
+            interestIds: ['interest 1', 'interest 2'],
+            projectIds: ['project 1', 'project 2'],
           ),
         ];
     } catch (e) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/profiles_list.dart';
+import '../widgets/widgets.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('TESTING'),
       ),
-      body: ProfilesList(),
+      body: ProjectsList(),
     );
   }
 }

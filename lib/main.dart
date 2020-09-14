@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'bloc/bloc.dart';
+import 'bloc/simple_bloc_observer.dart';
+import 'bloc/profiles/profiles.dart';
+import 'bloc/interests/interests.dart';
+import 'bloc/projects/projects.dart';
 import 'pages/home_page.dart';
 import 'repository/repository.dart';
 import 'utils/routes.dart';
@@ -10,10 +13,24 @@ void main() {
   Bloc.observer = SimpleBlocObserver();
 
   runApp(
-    BlocProvider<ProfilesCubit>(
-      create: (context) => ProfilesCubit(
-        repository: ProfileRepository(),
-      ),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider<ProfilesCubit>(
+          create: (context) => ProfilesCubit(
+            repository: ProfilesRepository(),
+          ),
+        ),
+        BlocProvider<InterestsCubit>(
+          create: (context) => InterestsCubit(
+            repository: InterestsRepository(),
+          ),
+        ),
+        BlocProvider<ProjectsCubit>(
+          create: (context) => ProjectsCubit(
+            repository: ProjectsRepository(),
+          ),
+        ),
+      ],
       child: BowfoliosApp(),
     ),
   );

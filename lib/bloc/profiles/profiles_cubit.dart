@@ -8,7 +8,7 @@ class ProfilesCubit extends Cubit<ProfilesState> {
     _getProfiles();
   }
 
-  final ProfileRepository repository;
+  final ProfilesRepository repository;
 
   void _getProfiles() async {
     try {
