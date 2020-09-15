@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/profiles/profiles.dart';
 import 'loading_indicator.dart';
+import 'profile_item.dart';
 
 class ProfilesList extends StatelessWidget {
   @override
@@ -17,20 +18,7 @@ class ProfilesList extends StatelessWidget {
             itemCount: profiles.length,
             itemBuilder: (BuildContext context, int index) {
               final profile = profiles[index];
-              return Container(
-                height: 300,
-                width: 300,
-                child: Column(
-                  children: [
-                    Text(profile.first),
-                    Text(profile.last),
-                    Text(profile.bio),
-                    Text(profile.email),
-                    Text(profile.picture),
-                    Text(profile.projectIds.length.toString()),
-                  ],
-                ),
-              );
+              return ProfileItem(profile: profile);
             },
           );
         } else if (state is ErrorState) {

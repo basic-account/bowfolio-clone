@@ -5,6 +5,7 @@ import 'bloc/simple_bloc_observer.dart';
 import 'bloc/profiles/profiles.dart';
 import 'bloc/interests/interests.dart';
 import 'bloc/projects/projects.dart';
+import 'bloc/tabs/tabs_cubit.dart';
 import 'pages/home_page.dart';
 import 'repository/repository.dart';
 import 'utils/routes.dart';
@@ -30,26 +31,13 @@ void main() {
             repository: ProjectsRepository(),
           ),
         ),
+        BlocProvider<TabsCubit>(
+          create: (context) => TabsCubit(),
+        ),
       ],
       child: BowfoliosApp(),
     ),
   );
-
-  /*runApp(
-    BlocProvider(
-      create: (context) {
-        return ProfilesBloc(
-          profilesRepository: const ProfilesConcreteRepository(
-            localStorage: const ProfilesFileStorage(
-              '__bow12_profiles__',
-              getApplicationDocumentsDirectory,
-            ),
-          ),
-        )..add(LoadProfiles());
-      },
-      child: BowfolioApp(),
-    ),
-  );*/
 }
 
 class BowfoliosApp extends StatelessWidget {
