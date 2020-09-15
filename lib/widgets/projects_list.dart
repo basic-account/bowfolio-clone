@@ -1,3 +1,4 @@
+import 'package:bowfolio/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,16 +18,7 @@ class ProjectsList extends StatelessWidget {
             itemCount: projects.length,
             itemBuilder: (BuildContext context, int index) {
               final project = projects[index];
-              return Container(
-                height: 300,
-                width: 300,
-                child: Column(
-                  children: [
-                    Text(project.name),
-                    Text(project.profileIds[0]),
-                  ],
-                ),
-              );
+              return ProjectItem(project: project);
             },
           );
         } else if (state is ErrorState) {

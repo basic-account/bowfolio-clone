@@ -7,3 +7,4 @@ export 'home.dart';
 export 'add_project.dart';
 export 'filter_view.dart';
 export 'profile_item.dart';
+export 'project_item.dart';

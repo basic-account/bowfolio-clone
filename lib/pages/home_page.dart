@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../widgets/widgets.dart';
@@ -8,12 +9,11 @@ import '../models/tabs.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays ([]); //makes it a full screen app
     return BlocBuilder<TabsCubit, Tabs>(
       builder: (context, tab) {
         return Scaffold(
-          appBar: AppBar(
-            title: Text('TESTING'),
-          ),
+          
           body: Builder(
             builder: (context) {
               if (tab == Tabs.home)

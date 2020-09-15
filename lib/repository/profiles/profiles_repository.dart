@@ -12,7 +12,7 @@ class ProfilesRepository {
           Profile(
             first: 'first',
             last: 'last',
-            email: '1',
+            email: 'email1',
             bio: 'bio',
             title: 'title',
             picture: 'https://picsum.photos/250?image=9',
@@ -22,7 +22,7 @@ class ProfilesRepository {
           Profile(
             first: 'Ayy',
             last: 'Buddy',
-            email: 'ayylmao@galacticmail.orl',
+            email: 'email2',
             bio: 'Just a fun alien looking for some fun alien times',
             title: 'Navigator',
             picture: 'https://i.ytimg.com/vi/epSv2k8ap4M/maxresdefault.jpg',
