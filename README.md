@@ -16,7 +16,7 @@ Other technologies currently in use are: [flutter_bloc](https://pub.dev/packages
 
 The `Projects` tab shows all the projects, as well as the pictures of the relevant people (or pups) working on them.  
 
-![projects](images/projects-ms1.png = 100x)  
+![projects](images/projects-ms1.png =100x20)  
 
 ### Profiles  
 
