@@ -16,19 +16,19 @@ Other technologies currently in use are: [flutter_bloc](https://pub.dev/packages
 
 The `Projects` tab shows all the projects, as well as the pictures of the relevant people (or pups) working on them.  
 
-![projects](images/projects-ms1.png =100x20)  
+<img src='images/projects-ms1.png' width="250" height="500">  
 
 ### Profiles  
 
 The `Profiles` tab shows the profile of each individual, as well as their interests and pictures for the projects they're working on.  
 
-![profiles](images/profiles-ms1.png)  
+<img src='images/profiles-ms1.png' width="250" height="500">  
 
 ### Interests  
 
 The `Interests` tab shows the interests of each profile and project.  
 
-![interests](images/interests-ms1.png)  
+<img src='images/interests-ms1.png' width="250" height="500">  
 
 ## Running the project  
 
