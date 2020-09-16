@@ -1,3 +1,4 @@
+import 'package:bowfolio/widgets/interest_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,14 +19,10 @@ class InterestsList extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               final interest = interests[index];
               return Container(
-                height: 300,
+                height: 120,
                 width: 300,
-                child: Column(
-                  children: [
-                    Text(interest.interest),
-                    Text(interest.profileIds[0]),
-                    Text(interest.projectIds.length.toString()),
-                  ],
+                child: InterestItem(
+                  interest: interest,
                 ),
               );
             },

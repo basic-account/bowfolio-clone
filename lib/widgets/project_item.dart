@@ -20,7 +20,10 @@ class ProjectItem extends StatelessWidget {
           children: [
             ListTile(
               contentPadding: EdgeInsets.all(10.0),
-              title: Text(project.name),
+              title: Text(
+                project.name,
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
               leading: Container(
                 height: 40,
                 width: 40,
@@ -49,7 +52,7 @@ class ProjectItem extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return Card(
                       elevation: 0,
-                      color: Colors.cyan,
+                      color: Colors.green,
                       child: Padding(
                         padding: const EdgeInsets.all(2.0),
                         child: Text(

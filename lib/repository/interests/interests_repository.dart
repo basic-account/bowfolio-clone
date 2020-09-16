@@ -10,14 +10,34 @@ class InterestsRepository {
 
       return [
           Interest(
-            interest: 'interest 1',
+            interest: 'Walking',
             profileIds: ['email1', 'email2'],
-            projectIds: ['project 1', 'project 2'],
+            projectIds: ['Regular Project'],
           ),
           Interest(
-            interest: 'interest 2',
-            profileIds: ['email1', 'email2'],
-            projectIds: ['project 1', 'project 2'],
+            interest: 'Sitting',
+            profileIds: ['email1', 'email3'],
+            projectIds: ['Regular Project', 'More Walks!!'],
+          ),
+          Interest(
+            interest: 'Dissections',
+            profileIds: ['email2'],
+            projectIds: ['Storm Area 51'],
+          ),
+          Interest(
+            interest: 'Anatomy',
+            profileIds: ['email2'],
+            projectIds: [],
+          ),
+          Interest(
+            interest: 'Accounting',
+            profileIds: ['email3'],
+            projectIds: ['Black Hole Energy Project'],
+          ),
+          Interest(
+            interest: 'Barking',
+            profileIds: ['email4'],
+            projectIds: ['Storm Area 51', 'More Walks!!'],
           ),
         ];
     } catch (e) {

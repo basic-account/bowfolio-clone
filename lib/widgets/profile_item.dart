@@ -20,8 +20,13 @@ class ProfileItem extends StatelessWidget {
           children: [
             ListTile(
               contentPadding: EdgeInsets.all(10.0),
-              title: Text(profile.first + ' ' + profile.last),
-              subtitle: Text(profile.title),
+              title: Text(
+                profile.first + ' ' + profile.last,
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              subtitle: Text(
+                profile.title,
+              ),
               trailing: Container(
                 height: 40,
                 width: 40,
@@ -50,7 +55,7 @@ class ProfileItem extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return Card(
                       elevation: 0,
-                      color: Colors.cyan,
+                      color: Colors.green,
                       child: Padding(
                         padding: const EdgeInsets.all(2.0),
                         child: Text(
