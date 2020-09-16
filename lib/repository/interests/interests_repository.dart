@@ -11,7 +11,7 @@ class InterestsRepository {
       return [
           Interest(
             interest: 'Walking',
-            profileIds: ['email1', 'email2'],
+            profileIds: ['email1', 'email2', 'email4'],
             projectIds: ['Regular Project'],
           ),
           Interest(
