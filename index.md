@@ -1,37 +1,49 @@
-## Welcome to GitHub Pages
+# Bowfolio Clone
 
-You can use the [editor on GitHub](https://github.com/basic-account/bowfolio-clone/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Warm-up assignment for ICS491, based off of <https://bowfolios.github.io/>  
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Bowfolio Clone is targeted at Android only at this time.  
 
-### Markdown
+This project is in development using Flutter, with Dart as the primary language.  
+Other technologies currently in use are: [flutter_bloc](https://pub.dev/packages/flutter_bloc) and [equatable](https://pub.dev/packages/equatable)  
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Milestone 1  
 
-```markdown
-Syntax highlighted code block
+- [x] Basic Modeling  
+- [x] Views for each 'list' type, `Profiles`, `Projects` and `Interests`  
 
-# Header 1
-## Header 2
-### Header 3
+### Projects  
 
-- Bulleted
-- List
+The `Projects` tab shows all the projects, as well as the pictures of the relevant people (or pups) working on them.  
 
-1. Numbered
-2. List
+<img src='images/projects-ms1.png' width="250" height="500">  
 
-**Bold** and _Italic_ and `Code` text
+### Profiles  
 
-[Link](url) and ![Image](src)
-```
+The `Profiles` tab shows the profile of each individual, as well as their interests and pictures for the projects they're working on.  
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+<img src='images/profiles-ms1.png' width="250" height="500">  
 
-### Jekyll Themes
+### Interests  
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/basic-account/bowfolio-clone/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+The `Interests` tab shows the interests of each profile and project.  
 
-### Support or Contact
+<img src='images/interests-ms1.png' width="250" height="500">  
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Running the project  
+
+Prerequisites: [Flutter/Flutter command line tools](https://flutter.dev/docs/get-started/install) and a connected Android device/simulator.  
+
+*note*: Android Studio is not required. Simulators however do require a partial download as described on the Flutter install page.  
+
+Running the command: `flutter doctor` can assist greatly in finding potential client-side issues.  
+
+In a terminal, run the following commands:  
+
+`git clone https://github.com/basic-account/bowfolio-clone.git`  
+
+`cd bowfolio-clone`  
+
+`flutter packages get`  
+
+`flutter run`  
