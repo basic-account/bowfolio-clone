@@ -1,10 +1,10 @@
 # Bowfolio Clone
 
-Warm-up assignment for ICS491, based off of <https://bowfolios.github.io/>.  
+Warm-up assignment for ICS491, based off of <https://bowfolios.github.io/>  
 
-Bowfolio Clone is targeted to Android only at this time.  
+Bowfolio Clone is targeted at Android only at this time.  
 
-This project is done using Flutter, with Dart as the primary language.  
+This project is in development using Flutter, with Dart as the primary language.  
 Other technologies currently in use are: [flutter_bloc](https://pub.dev/packages/flutter_bloc) and [equatable](https://pub.dev/packages/equatable)  
 
 ## Milestone 1  
@@ -16,7 +16,7 @@ Other technologies currently in use are: [flutter_bloc](https://pub.dev/packages
 
 The `Projects` tab shows all the projects, as well as the pictures of the relevant people (or pups) working on them.  
 
-![projects](images/projects-ms1.png)  
+![projects](images/projects-ms1.png = 100x)  
 
 ### Profiles  
 
@@ -32,9 +32,9 @@ The `Interests` tab shows the interests of each profile and project.
 
 ## Running the project  
 
-Prerequisites: [flutter/flutter command line tools](https://flutter.dev/docs/get-started/install) and a connected Android device/simulator  
+Prerequisites: [Flutter/Flutter command line tools](https://flutter.dev/docs/get-started/install) and a connected Android device/simulator.  
 
-*note*: Android studio is not required, simulators however do require a partial download as described on the Flutter install page  
+*note*: Android Studio is not required. Simulators however do require a partial download as described on the Flutter install page.  
 
 Running the command: `flutter doctor` can assist greatly in finding potential client-side issues.  
 
