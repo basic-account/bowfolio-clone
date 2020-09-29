@@ -1,5 +1,7 @@
 # Bowfolio Clone
 
+pages link: <https://basic-account.github.io/bowfolio-clone/>  
+
 Warm-up assignment for ICS491, based off of <https://bowfolios.github.io/>  
 
 Bowfolio Clone is targeted at Android only at this time.  
@@ -29,6 +31,17 @@ The `Profiles` tab shows the profile of each individual, as well as their intere
 The `Interests` tab shows the interests of each profile and project.  
 
 <img src='images/interests-ms1.png' width="250" height="500">  
+
+## Milestone 2  
+
+- [ ] Views for every page  
+- [ ] Authenticated user  
+
+## Milestone 3  
+
+- [ ] Link data to database  
+- [ ] Clean views  
+- [ ] Fix obvious bugs  
 
 ## Running the project  
 
