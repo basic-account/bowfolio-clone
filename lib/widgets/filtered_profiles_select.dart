@@ -1,9 +1,7 @@
-import 'package:bowfolio/bloc/profiles/filtered_profiles_state.dart';
-import 'package:bowfolio/bloc/profiles/profiles_cubit.dart';
-import 'package:bowfolio/bloc/profiles/profiles_search_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../bloc/profiles/profiles.dart';
 import 'loading_indicator.dart';
 
 class FilteredProfilesSelect extends StatelessWidget {
@@ -13,12 +11,12 @@ class FilteredProfilesSelect extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProfilesSearchCubit, FilteredProfilesState>(
+    return BlocBuilder<ProfilesCubit, ProfilesState>(
       builder: (context, state) {
-        if (state is FilteredLoadingState) {
+        if (state is LoadingState) {
           return LoadingIndicator();
-        } else if (state is FilteredLoadedState) {
-          final profiles = state.profiles;
+        } else if (state is LoadedState) {
+          final profiles = state.profiles.where((profile) => profile.email.contains(query)).toList();
           return ListView.builder(
             itemCount: profiles.length,
             itemBuilder: (BuildContext context, int index) {
@@ -26,7 +24,7 @@ class FilteredProfilesSelect extends StatelessWidget {
               return Text(profile.email);
             },
           );
-        } else if (state is FilteredErrorState) {
+        } else if (state is ErrorState) {
           return Container(
             child: Text('not loaded'),
           );

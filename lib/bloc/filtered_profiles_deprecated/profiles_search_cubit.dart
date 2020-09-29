@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:bowfolio/bloc/profiles/profiles_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'profiles_state.dart';
-import 'filtered_profiles_state.dart';
-import 'profiles_cubit.dart';
+import '../profiles/profiles_state.dart';
+import 'filtered_profiles_cubit_state.dart';
+import '../profiles/profiles_cubit.dart';
 
 class ProfilesSearchCubit extends Cubit<FilteredProfilesState> {
   ProfilesSearchCubit({this.profilesCubit}) : super(FilteredInitialState()) {
@@ -21,7 +21,10 @@ class ProfilesSearchCubit extends Cubit<FilteredProfilesState> {
     //if (FilteredProfilesState is FilteredLoadedState) {
 
     try {     
-      final filteredProfiles = (state as FilteredLoadedState).profiles.where((profile) => profile.email.contains(query));
+
+      final filteredProfiles = (state as FilteredLoadedState).profiles.where((profile) => profile.email.contains(query)).toList();
+
+      emit(FilteredLoadingState());
       /*final filteredProfiles = profilesCubit.
           .profiles
           .where((profile) => profile.email.contains(query));*/

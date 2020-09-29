@@ -1,7 +1,4 @@
-import 'package:bowfolio/bloc/profiles/profiles_search_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 
 import 'filtered_profiles_select.dart';
 
@@ -27,10 +24,13 @@ class _TagProfilesState extends State<TagProfiles> {
             return val.trim().isEmpty ? 'empty' : null;
           },
           onChanged: (value) {
-            //_searchTerm = value;
-            context.bloc<ProfilesSearchCubit>().filter(value);
+            setState(() {
+                          _searchTerm = value;
+
+            });
+            //context.bloc<FilteredProfilesBloc>().add(QueryUpdated(value));
+            //context.bloc<ProfilesSearchCubit>().filter(value);
           },
-          onSaved: (value) => context.bloc<ProfilesSearchCubit>().filter(value),
         ),
         Container(height: 100, child: FilteredProfilesSelect(_searchTerm)),
       ],
