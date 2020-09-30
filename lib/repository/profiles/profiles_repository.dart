@@ -11,10 +11,10 @@ class ProfilesRepository {
         Profile(
           first: 'John',
           last: 'Doe',
-          email: 'email1',
+          email: 'john@gmail.com',
           bio: 'Regular human. There is nothing to see behind this thin veil. Move along.',
           title: 'Human',
-          picture: 'https://dailystormer.name/wp-content/uploads/2018/09/ca9adce0-701b-11e8-b100-476dc9249f37.jpg',
+          picture: 'https://1.bp.blogspot.com/-YD3tUFLWcHs/UN1E-NSi4II/AAAAAAAAAYI/wpzBlIhlqGU/s1600/IMG_3473.jpg',
           interestIds: ['Walking', 'Sitting'],
           projectIds: ['Regular Project'],
         ),

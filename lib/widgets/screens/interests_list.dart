@@ -1,24 +1,30 @@
+import 'package:bowfolio/widgets/interest_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc/profiles/profiles.dart';
-import 'loading_indicator.dart';
-import 'profile_item.dart';
+import '../loading_indicator.dart';
+import '../../bloc/interests/interests.dart';
 
-class ProfilesList extends StatelessWidget {
+class InterestsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProfilesCubit, ProfilesState>(
+    return BlocBuilder<InterestsCubit, InterestsState>(
       builder: (context, state) {
         if (state is LoadingState) {
           return LoadingIndicator();
         } else if (state is LoadedState) {
-          final profiles = state.profiles;
+          final interests = state.interests;
           return ListView.builder(
-            itemCount: profiles.length,
+            itemCount: interests.length,
             itemBuilder: (BuildContext context, int index) {
-              final profile = profiles[index];
-              return ProfileItem(profile: profile);
+              final interest = interests[index];
+              return Container(
+                height: 120,
+                width: 300,
+                child: InterestItem(
+                  interest: interest,
+                ),
+              );
             },
           );
         } else if (state is ErrorState) {

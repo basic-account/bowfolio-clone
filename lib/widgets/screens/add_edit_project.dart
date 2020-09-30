@@ -1,8 +1,8 @@
-import 'package:bowfolio/widgets/tagProfiles.dart';
+import 'package:bowfolio/widgets/tag_profiles.dart';
 import 'package:flutter/material.dart';
 
-import '../models/project.dart';
-import '../utils/utils.dart';
+import '../../models/project.dart';
+import '../../utils/utils.dart';
 
 typedef OnSaveCallback = Function(String name, String picture, String homepage,
     String description, List<String> interestIds, List<String> profileIds);

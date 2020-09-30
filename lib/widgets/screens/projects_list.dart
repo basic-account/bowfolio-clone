@@ -1,30 +1,24 @@
-import 'package:bowfolio/widgets/interest_item.dart';
+import 'package:bowfolio/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'loading_indicator.dart';
-import '../bloc/interests/interests.dart';
+import '../loading_indicator.dart';
+import '../../bloc/projects/projects.dart';
 
-class InterestsList extends StatelessWidget {
+class ProjectsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<InterestsCubit, InterestsState>(
+    return BlocBuilder<ProjectsCubit, ProjectsState>(
       builder: (context, state) {
         if (state is LoadingState) {
           return LoadingIndicator();
         } else if (state is LoadedState) {
-          final interests = state.interests;
+          final projects = state.projects;
           return ListView.builder(
-            itemCount: interests.length,
+            itemCount: projects.length,
             itemBuilder: (BuildContext context, int index) {
-              final interest = interests[index];
-              return Container(
-                height: 120,
-                width: 300,
-                child: InterestItem(
-                  interest: interest,
-                ),
-              );
+              final project = projects[index];
+              return ProjectItem(project: project);
             },
           );
         } else if (state is ErrorState) {

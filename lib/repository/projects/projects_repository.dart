@@ -15,7 +15,7 @@ class ProjectsRepository {
             homepage: 'homepage',
             description: 'Nothing to see here..',
             interestIds: ['Walking', 'Sitting'],
-            profileIds: ['email1', 'email3', 'email4'],
+            profileIds: ['john@gmail.com', 'email3', 'email4'],
           ),
           Project(
             name: 'Storm Area 51',
