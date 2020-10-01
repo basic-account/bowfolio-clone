@@ -1,3 +1,4 @@
+import 'package:bowfolio/bloc/profiles/profiles.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../models/profile.dart';
@@ -21,6 +22,14 @@ class LoadedState extends ProfilesState {
 
   @override
   List<Object> get props => [profiles];
+}
+
+class UpdatedProfileState extends ProfilesState {
+  final Profile profile;
+
+  UpdatedProfileState(this.profile);
+
+  @override List<Object> get props => [profile];
 }
 
 class ErrorState extends ProfilesState {

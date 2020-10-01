@@ -28,17 +28,24 @@ class _LoginFormState extends State<LoginForm> {
                   );
               }
             },
-            child: Align(
-              alignment: const Alignment(0, -1 / 3),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  _SignUpEmailInput(),
-                  const Padding(padding: EdgeInsets.all(12)),
-                  _SignUpPasswordInput(),
-                  const Padding(padding: EdgeInsets.all(12)),
-                  _SignUpSubmitButton(),
-                ],
+            child: Card(
+              child: Align(
+                alignment: const Alignment(0, -1 / 3),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'Bowfolios',
+                      textScaleFactor: 2,
+                      style: TextStyle(color: Colors.green),
+                    ),
+                    _SignUpEmailInput(),
+                    const Padding(padding: EdgeInsets.all(12)),
+                    _SignUpPasswordInput(),
+                    const Padding(padding: EdgeInsets.all(12)),
+                    _SignUpSubmitButton(),
+                  ],
+                ),
               ),
             ),
           )
@@ -52,23 +59,30 @@ class _LoginFormState extends State<LoginForm> {
                   );
               }
             },
-            child: Align(
-              alignment: const Alignment(0, -1 / 3),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  _UsernameInput(),
-                  const Padding(padding: EdgeInsets.all(12)),
-                  _PasswordInput(),
-                  const Padding(padding: EdgeInsets.all(12)),
-                  _LoginButton(),
-                  const Padding(padding: EdgeInsets.all(12)),
-                  _SignUpButton(() {
-                    setState(() {
-                      isSignUp = true;
-                    });
-                  }),
-                ],
+            child: Card(
+              child: Align(
+                alignment: const Alignment(0, -1 / 3),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'Bowfolios',
+                      textScaleFactor: 2,
+                      style: TextStyle(color: Colors.green),
+                    ),
+                    _UsernameInput(),
+                    const Padding(padding: EdgeInsets.all(12)),
+                    _PasswordInput(),
+                    const Padding(padding: EdgeInsets.all(12)),
+                    _LoginButton(),
+                    const Padding(padding: EdgeInsets.all(12)),
+                    _SignUpButton(() {
+                      setState(() {
+                        isSignUp = true;
+                      });
+                    }),
+                  ],
+                ),
               ),
             ),
           );
@@ -81,13 +95,16 @@ class _UsernameInput extends StatelessWidget {
     return BlocBuilder<LoginBloc, LoginState>(
       buildWhen: (previous, current) => previous.email != current.email,
       builder: (context, state) {
-        return TextField(
-          key: const Key('loginForm_usernameInput_textField'),
-          onChanged: (username) =>
-              context.bloc<LoginBloc>().add(LoginUsernameChanged(username)),
-          decoration: InputDecoration(
-            labelText: 'email',
-            errorText: state.email.invalid ? 'invalid email' : null,
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: TextField(
+            key: const Key('loginForm_usernameInput_textField'),
+            onChanged: (username) =>
+                context.bloc<LoginBloc>().add(LoginUsernameChanged(username)),
+            decoration: InputDecoration(
+              labelText: 'email',
+              errorText: state.email.invalid ? 'invalid email' : null,
+            ),
           ),
         );
       },
@@ -101,14 +118,18 @@ class _SignUpEmailInput extends StatelessWidget {
     return BlocBuilder<SignUpCubit, SignUpState>(
       buildWhen: (previous, current) => previous.email != current.email,
       builder: (context, state) {
-        return TextField(
-          key: const Key('signUpForm_emailInput_textField'),
-          onChanged: (email) => context.bloc<SignUpCubit>().emailChanged(email),
-          keyboardType: TextInputType.emailAddress,
-          decoration: InputDecoration(
-            labelText: 'email',
-            helperText: '',
-            errorText: state.email.invalid ? 'invalid email' : null,
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: TextField(
+            key: const Key('signUpForm_emailInput_textField'),
+            onChanged: (email) =>
+                context.bloc<SignUpCubit>().emailChanged(email),
+            keyboardType: TextInputType.emailAddress,
+            decoration: InputDecoration(
+              labelText: 'email',
+              helperText: '',
+              errorText: state.email.invalid ? 'invalid email' : null,
+            ),
           ),
         );
       },
@@ -122,15 +143,18 @@ class _SignUpPasswordInput extends StatelessWidget {
     return BlocBuilder<SignUpCubit, SignUpState>(
       buildWhen: (previous, current) => previous.password != current.password,
       builder: (context, state) {
-        return TextField(
-          key: const Key('signUpForm_passwordInput_textField'),
-          onChanged: (password) =>
-              context.bloc<SignUpCubit>().passwordChanged(password),
-          obscureText: true,
-          decoration: InputDecoration(
-            labelText: 'password',
-            helperText: '',
-            errorText: state.password.invalid ? 'invalid password' : null,
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: TextField(
+            key: const Key('signUpForm_passwordInput_textField'),
+            onChanged: (password) =>
+                context.bloc<SignUpCubit>().passwordChanged(password),
+            obscureText: true,
+            decoration: InputDecoration(
+              labelText: 'password',
+              helperText: '',
+              errorText: state.password.invalid ? 'invalid password' : null,
+            ),
           ),
         );
       },
@@ -148,7 +172,7 @@ class _SignUpSubmitButton extends StatelessWidget {
             ? const CircularProgressIndicator()
             : RaisedButton(
                 key: const Key('signUpForm_continue_raisedButton'),
-                child: const Text('SIGN UP'),
+                child: const Text('Sign up'),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
                 ),
@@ -168,14 +192,17 @@ class _PasswordInput extends StatelessWidget {
     return BlocBuilder<LoginBloc, LoginState>(
       buildWhen: (previous, current) => previous.password != current.password,
       builder: (context, state) {
-        return TextField(
-          key: const Key('loginForm_passwordInput_textField'),
-          onChanged: (password) =>
-              context.bloc<LoginBloc>().add(LoginPasswordChanged(password)),
-          obscureText: true,
-          decoration: InputDecoration(
-            labelText: 'password',
-            errorText: state.password.invalid ? 'invalid password' : null,
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: TextField(
+            key: const Key('loginForm_passwordInput_textField'),
+            onChanged: (password) =>
+                context.bloc<LoginBloc>().add(LoginPasswordChanged(password)),
+            obscureText: true,
+            decoration: InputDecoration(
+              labelText: 'password',
+              errorText: state.password.invalid ? 'invalid password' : null,
+            ),
           ),
         );
       },
@@ -197,7 +224,6 @@ class _LoginButton extends StatelessWidget {
                 onPressed: state.status.isValidated
                     ? () {
                         context.bloc<LoginBloc>().add(const LoginSubmitted());
-                        
                       }
                     : null,
               );

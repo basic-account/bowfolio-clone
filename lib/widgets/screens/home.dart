@@ -11,14 +11,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:authentication_repository/authentication_repository.dart';
 
-class Home extends StatefulWidget {
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  String email = ''; // = context.bloc<AuthenticationBloc>().state;
-
+//Login Screen, which changes into a profile edit screen upon authentication
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AuthenticationBloc, AuthenticationState>(
@@ -41,7 +35,21 @@ class _HomeState extends State<Home> {
                         email: state.user.email,
                       )
                     : AddEditProfile(
-                        onSave: null,
+                        onSave: (first, last, email, bio, title, picture,
+                            interestIds, projectIds) {
+                          BlocProvider.of<ProfilesCubit>(context).updateProfile(
+                            profile.copyWith(
+                              first: first,
+                              last: last,
+                              email: email,
+                              bio: bio,
+                              title: title,
+                              picture: picture,
+                              interestIds: interestIds,
+                              projectIds: projectIds,
+                            ),
+                          );
+                        },
                         isEditing: true,
                         profile: profile,
                       );
@@ -72,103 +80,5 @@ class _HomeState extends State<Home> {
           ], child: LoginForm());
       },
     );
-
-    /*BlocListener<AuthenticationBloc, AuthenticationState>(
-      listener: (context, state) {
-        switch (state.status) {
-          case AuthenticationStatus.authenticated:
-            setState(() {
-              email = state.user.email;
-            });
-            break;
-          case AuthenticationStatus.unauthenticated:
-            setState(() {
-              email = 'jj';
-            });
-            break;
-          default:
-            break;
-        }
-      },
-      child: email == ''
-          ? MultiBlocProvider(providers: [
-              BlocProvider<LoginBloc>(
-                create: (context) => LoginBloc(
-                  authenticationRepository:
-                      RepositoryProvider.of<AuthenticationRepository>(context),
-                ),
-              ),
-              BlocProvider<SignUpCubit>(
-                create: (context) => SignUpCubit(
-                  RepositoryProvider.of<AuthenticationRepository>(context),
-                ),
-              ),
-            ], child: LoginForm())
-          : AddEditProfile(
-              onSave: null,
-              isEditing: false,
-              email: email,
-            ),
-    );*/
-
-    /*auth.status == AuthenticationStatus.authenticated
-        ? BlocBuilder<ProfilesCubit, ProfilesState>(
-            builder: (context, state) {
-              if (state is LoadingState) {
-                return LoadingIndicator();
-              } else if (state is LoadedState) {
-                final profile = state.profiles.firstWhere(
-                    (profile) => profile.email == auth.user.email,
-                    orElse: () => null);
-
-                return profile == null
-                    ? AddEditProfile(
-                        onSave: null,
-                        isEditing: false,
-                        email: auth.user.email,
-                      )
-                    : AddEditProfile(
-                        onSave: null,
-                        isEditing: false,
-                        //profile: profile,
-                      );
-              } else if (state is ErrorState) {
-                return Container(
-                  child: Text('not loaded'),
-                ); //TODO
-              } else {
-                return Container(
-                  child: Text('how did you get here'),
-                );
-              }
-            },
-          )
-        : MultiBlocProvider(providers: [
-            BlocProvider<LoginBloc>(
-              create: (context) => LoginBloc(
-                authenticationRepository:
-                    RepositoryProvider.of<AuthenticationRepository>(context),
-              ),
-            ),
-            BlocProvider<SignUpCubit>(
-              create: (context) => SignUpCubit(
-                RepositoryProvider.of<AuthenticationRepository>(context),
-              ),
-            ),
-          ], child: LoginForm());*/
-
-    //return Container();
-    /*final profile = st
-        if(state is LoadingState)
-          return LoadingIndicator();
-        else if (state is LoadedState)
-
-
-
-
-
-
-        if (state.status == AuthenticationStatus.authenticated)
-          return AddEditProfile(profile: .cop user.email);*/
   }
 }

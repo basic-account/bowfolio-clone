@@ -9,21 +9,21 @@ class InitialState extends InterestsState {
   List<Object> get props => [];
 }
 
-class LoadingState extends InterestsState {
+class InterestsLoadingState extends InterestsState {
   @override
   List<Object> get props => [];
 }
 
-class LoadedState extends InterestsState {
+class InterestsLoadedState extends InterestsState {
   final List<Interest> interests;
   
-  LoadedState(this.interests);
+  InterestsLoadedState(this.interests);
 
   @override
   List<Object> get props => [interests];
 }
 
-class ErrorState extends InterestsState {
+class InterestsErrorState extends InterestsState {
   @override
   List<Object> get props => [];
 }

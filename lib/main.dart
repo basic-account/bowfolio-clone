@@ -1,3 +1,4 @@
+import 'package:bowfolio/bloc/add_project/add_project_cubit.dart';
 import 'package:bowfolio/bloc/authentication/authentication_bloc.dart';
 import 'package:bowfolio/pages/splash_page.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +40,11 @@ void main() {
         BlocProvider<TabsCubit>(
           create: (context) => TabsCubit(),
         ),
+        BlocProvider<AddProjectCubit>(
+          create: (context) => AddProjectCubit(
+            ProjectsRepository(),
+          ),
+        )
       ],
       child: BowfoliosApp(
         authenticationRepository: AuthenticationRepository(),
@@ -71,6 +77,11 @@ class BowfoliosApp extends StatelessWidget {
         ),
         child: 
          MaterialApp(
+           theme: ThemeData(
+             highlightColor: Colors.green,
+             accentColor: Colors.green,
+             primaryColor: Colors.green,
+           ),
           title: 'Bowfolios App',
           routes: {
             Routes.home: (context) {

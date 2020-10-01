@@ -7,7 +7,7 @@ Warm-up assignment for ICS491, based off of <https://bowfolios.github.io/>
 Bowfolio Clone is targeted at Android only at this time.  
 
 This project is in development using Flutter, with Dart as the primary language.  
-Other technologies currently in use are: [flutter_bloc](https://pub.dev/packages/flutter_bloc) and [equatable](https://pub.dev/packages/equatable)  
+Other technologies currently in use are: [flutter_bloc](https://pub.dev/packages/flutter_bloc), [equatable](https://pub.dev/packages/equatable) and [formz](https://pub.dev/packages/formz).  
 
 ## Milestone 1  
 
@@ -34,8 +34,30 @@ The `Interests` tab shows the interests of each profile and project.
 
 ## Milestone 2  
 
-- [ ] Views for every page  
-- [ ] Authenticated user  
+- [x] Views for every page  
+- [x] Authenticated user  
+
+### User  
+
+The `Home` tab has been converted into the login/landing page when opening the app. The `Add` and `Filter` tabs are now locked behind authentification.  
+
+<img src='images/authentication.png' width="250" height="500">  
+
+Once safely logged in, the `Home` tab transforms into a view asking the user to complete or edit their profile.  
+
+<img src='images/edit_profile.png' width="250" height="500">  
+
+### Add Project  
+
+The `Add Project` now has a bit more lustre. Some amount of form validation is also included for every text box.  
+
+<img src='images/add_project.png' width="250" height="500">  
+
+### Filter  
+
+`Filter` checks profiles against the given interests. If any of the interests match profiles, the filter shows them all.  
+
+<img src='images/filter.png' width="250" height="500">  
 
 ## Milestone 3  
 
@@ -56,7 +78,5 @@ In a terminal, run the following commands:
 `git clone https://github.com/basic-account/bowfolio-clone.git`  
 
 `cd bowfolio-clone`  
-
-`flutter packages get`  
 
 `flutter run`  

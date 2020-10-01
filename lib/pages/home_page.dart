@@ -1,3 +1,4 @@
+import 'package:bowfolio/widgets/project_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,7 +12,7 @@ class HomePage extends StatelessWidget {
   static Route route() {
     return MaterialPageRoute<void>(builder: (_) => HomePage());
   }
-  
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]); //makes it a full screen app
@@ -29,9 +30,7 @@ class HomePage extends StatelessWidget {
               else if (tab == Tabs.interests)
                 return InterestsList();
               else if (tab == Tabs.addProject)
-                return AddEditProject(
-                  isEditing: false,
-                );
+                return ProjectForm();
               else if (tab == Tabs.filter)
                 return FilterView();
               else

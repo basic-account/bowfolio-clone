@@ -1,9 +1,6 @@
 import '../../models/interest.dart';
 
 class InterestsRepository {
-  //MovieRepository(this.client);
-
-  //final Dio client;
 
   Future<List<Interest>> getInterests() async {
     try {

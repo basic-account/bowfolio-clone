@@ -43,7 +43,7 @@ class _AddEditProjectPageState extends State<AddEditProject> {
             children: [
               TextFormField(
                 initialValue: isEditing ? widget.project.name : '',
-                autofocus: !isEditing,
+                //autofocus: !isEditing,
                 decoration: InputDecoration(hintText: 'Project Name...'),
                 validator: (val) {
                   return val.trim().isEmpty ? 'empty' : null;
@@ -52,7 +52,7 @@ class _AddEditProjectPageState extends State<AddEditProject> {
               ),
               TextFormField(
                 initialValue: isEditing ? widget.project.picture : '',
-                autofocus: !isEditing,
+                //autofocus: !isEditing,
                 decoration: InputDecoration(hintText: 'Picture url...'),
                 validator: (val) {
                   return val.trim().isEmpty ? 'empty' : null;
@@ -61,7 +61,7 @@ class _AddEditProjectPageState extends State<AddEditProject> {
               ),
               TextFormField(
                 initialValue: isEditing ? widget.project.homepage : '',
-                autofocus: !isEditing,
+                //autofocus: !isEditing,
                 decoration: InputDecoration(hintText: 'Homepage url...'),
                 validator: (val) {
                   return val.trim().isEmpty ? 'empty' : null;
@@ -70,7 +70,7 @@ class _AddEditProjectPageState extends State<AddEditProject> {
               ),
               TextFormField(
                 initialValue: isEditing ? widget.project.description : '',
-                autofocus: !isEditing,
+                //autofocus: !isEditing,
                 decoration: InputDecoration(hintText: 'description...'),
                 validator: (val) {
                   return val.trim().isEmpty ? 'empty' : null;
@@ -79,7 +79,7 @@ class _AddEditProjectPageState extends State<AddEditProject> {
               ),
               TextFormField(
                 initialValue: isEditing ? widget.project.profileIds : '',
-                autofocus: !isEditing,
+                //autofocus: !isEditing,
                 decoration: InputDecoration(hintText: 'Project Name...'),
                 validator: (val) {
                   return val.trim().isEmpty ? 'empty' : null;

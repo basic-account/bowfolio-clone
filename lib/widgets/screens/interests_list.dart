@@ -10,9 +10,9 @@ class InterestsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<InterestsCubit, InterestsState>(
       builder: (context, state) {
-        if (state is LoadingState) {
+        if (state is InterestsLoadingState) {
           return LoadingIndicator();
-        } else if (state is LoadedState) {
+        } else if (state is InterestsLoadedState) {
           final interests = state.interests;
           return ListView.builder(
             itemCount: interests.length,
@@ -27,7 +27,7 @@ class InterestsList extends StatelessWidget {
               );
             },
           );
-        } else if (state is ErrorState) {
+        } else if (state is InterestsErrorState) {
           return Container(
             child: Text('not loaded'),
           ); //TODO

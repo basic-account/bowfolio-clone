@@ -12,11 +12,11 @@ class InterestsCubit extends Cubit<InterestsState> {
 
   void _getInterests() async {
     try {
-      emit(LoadingState());
+      emit(InterestsLoadingState());
       final interests = await repository.getInterests();
-      emit(LoadedState(interests));
+      emit(InterestsLoadedState(interests));
     } catch (e) {
-      emit(ErrorState());
+      emit(InterestsErrorState());
     }
   }
 }
