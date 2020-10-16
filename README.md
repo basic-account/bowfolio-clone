@@ -61,9 +61,17 @@ The `Add Project` now has a bit more lustre. Some amount of form validation is a
 
 ## Milestone 3  
 
-- [ ] Link data to database  
-- [ ] Clean views  
-- [ ] Fix obvious bugs  
+- [x] Clean views  
+
+### Add or Edit Profile  
+
+The Home edit page looks a little more full now.  
+
+<img src='images/new_profile.png' width="250" height="500">  
+
+Upon clicking `Submit`, a complete profile is now shown.  
+
+<img src='images/new_home.png' width="250" height="500">  
 
 ## Running the project  
 
@@ -80,3 +88,8 @@ In a terminal, run the following commands:
 `cd bowfolio-clone`  
 
 `flutter run`  
+
+Login credentials for registered user  
+
+email: john@gmail.com  
+password: any combination of letters and numbers > 6  
