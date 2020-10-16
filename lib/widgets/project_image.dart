@@ -24,14 +24,19 @@ class ProjectImage extends StatelessWidget {
             padding: const EdgeInsets.only(left: 2.0, right: 2.0),
             child: Container(
               width: 40, //same as parent height
-              decoration: BoxDecoration(
+              child: FadeInImage(
+                image: NetworkImage(project.picture),
+                placeholder: NetworkImage(
+                    'https://socialnewsdaily.com/wp-content/uploads/2018/07/dog-having-a-good-day.jpg'),
+              ),
+            ),
+            /*BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
                   image: NetworkImage(project.picture),
                   fit: BoxFit.cover,
                 ),
-              ),
-            ),
+              ),*/
           );
         } else {
           return Container();

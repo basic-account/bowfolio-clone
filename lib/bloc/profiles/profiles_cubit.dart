@@ -21,10 +21,28 @@ class ProfilesCubit extends Cubit<ProfilesState> {
     }
   }
 
-  void updateProfile(Profile profile) async {
+  void updateProfile({
+    String first,
+    String last,
+    String email,
+    String title,
+    String bio,
+    String picture,
+    List<String> interestIds,
+    List<String> projectIds,
+  }) async {
     try {
       emit(LoadingState());
-      final profiles = await repository.updateProfile(profile);
+      final profiles = await repository.addOrUpdateProfile(
+        first: first,
+        last: last,
+        email: email,
+        title: title,
+        bio: bio,
+        picture: picture,
+        interestIds: interestIds,
+        projectIds: projectIds,
+      );
       emit(LoadedState(profiles));
     } catch (e) {
       emit(ErrorState());

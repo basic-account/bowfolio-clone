@@ -20,9 +20,14 @@ class _FilterViewState extends State<FilterView> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-          child: Container(
+      child: Container(
         child: Column(
           children: [
+            Text(
+              'Filter Interests',
+              textScaleFactor: 2,
+              style: TextStyle(color: Colors.green),
+            ),
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Card(
@@ -54,7 +59,9 @@ class _FilterViewState extends State<FilterView> {
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
                         controller: _controller,
-                        decoration: InputDecoration(labelText: 'interest', hintText: 'Type an interest...'),
+                        decoration: InputDecoration(
+                            labelText: 'interest',
+                            hintText: 'Type an interest...'),
                         validator: (val) {
                           return val.trim().isEmpty ? 'empty' : null;
                         },
@@ -86,7 +93,8 @@ class _FilterViewState extends State<FilterView> {
                                   height: 100,
                                   child: ListView.builder(
                                     itemCount: interests.length,
-                                    itemBuilder: (BuildContext context, int index) {
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
                                       final interest = interests[index];
                                       return FlatButton(
                                         child: Text(interest.interest),
@@ -121,8 +129,8 @@ class _FilterViewState extends State<FilterView> {
                       return LoadingIndicator();
                     } else if (state is LoadedState) {
                       final profiles = state.profiles
-                          .where((profile) => profile.interestIds
-                              .any((interest) => interestIds.contains(interest)))
+                          .where((profile) => profile.interestIds.any(
+                              (interest) => interestIds.contains(interest)))
                           .toList();
                       return ListView.builder(
                         itemCount: profiles.length,

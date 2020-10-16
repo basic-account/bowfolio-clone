@@ -216,7 +216,7 @@ class __InterestIdsInputState extends State<_InterestIdsInput> {
                               height: 100,
                               child: ListView.builder(
                                 itemCount: interests.length,
-                                itemBuilder: (BuildContext context, int index) {
+                                itemBuilder: (BuildContext context, int index) { 
                                   final interest = interests[index];
                                   return FlatButton(
                                     child: Text(interest.interest),

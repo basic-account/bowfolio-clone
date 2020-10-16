@@ -4,15 +4,23 @@ import 'package:bowfolio/bloc/signup/signup_cubit.dart';
 import 'package:bowfolio/widgets/widgets.dart';
 import '../../models/profile.dart';
 import 'package:bowfolio/bloc/login/login_bloc.dart';
-import 'package:bowfolio/widgets/add_edit_profile.dart';
 import 'package:bowfolio/widgets/login_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:authentication_repository/authentication_repository.dart';
 
+import '../profile_form.dart';
+
 //Login Screen, which changes into a profile edit screen upon authentication
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  bool editState = true;
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AuthenticationBloc, AuthenticationState>(
@@ -28,31 +36,106 @@ class Home extends StatelessWidget {
                     (profile) => profile.email == state.user.email,
                     orElse: () => null);
 
-                return profile == null
-                    ? AddEditProfile(
-                        onSave: null,
-                        isEditing: false,
-                        email: state.user.email,
-                      )
-                    : AddEditProfile(
-                        onSave: (first, last, email, bio, title, picture,
-                            interestIds, projectIds) {
-                          BlocProvider.of<ProfilesCubit>(context).updateProfile(
-                            profile.copyWith(
-                              first: first,
-                              last: last,
-                              email: email,
-                              bio: bio,
-                              title: title,
-                              picture: picture,
-                              interestIds: interestIds,
-                              projectIds: projectIds,
+                return editState
+                    ? profile == null
+                        ? ProfileForm(
+                            isEditing: false,
+                            profile: Profile(
+                              email: state.user.email,
                             ),
+                            editState: () {
+                              setState(() {
+                                editState = false;
+                              });
+                            },
+                          )
+                        : ProfileForm(
+                            isEditing: true,
+                            profile: Profile(
+                              first: profile.first,
+                              last: profile.last,
+                              email: profile.email,
+                              bio: profile.bio,
+                              title: profile.title,
+                              picture: profile.picture,
+                              interestIds: profile.interestIds,
+                              projectIds: profile.projectIds,
+                            ),
+                            editState: () {
+                              setState(() {
+                                editState = false;
+                              });
+                            },
+                          )
+                    : profile == null
+                        ? ProfileForm(
+                            isEditing: false,
+                            profile: Profile(
+                              email: state.user.email,
+                            ),
+                            editState: () {
+                              setState(() {
+                                editState = false;
+                              });
+                            },
+                          )
+                        : Column(
+                            children: [
+                              Text(
+                                'Your Profile',
+                                textScaleFactor: 2,
+                                style: TextStyle(color: Colors.green),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                        profile.email,
+                                      ),
+                                    ),
+                                    RaisedButton(
+                                      child: const Text(
+                                        'Logout?',
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(30.0),
+                                      ),
+                                      color: Colors.green,
+                                      onPressed: () {
+                                        context.bloc<AuthenticationBloc>().add(
+                                            AuthenticationLogoutRequested());
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              ProfileItem(
+                                profile: profile,
+                              ),
+                              RaisedButton(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30.0),
+                                ),
+                                color: Colors.green,
+                                //key: const Key('loginForm_continue_raisedButton'),
+                                child: const Text(
+                                  'Edit Profile',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    editState = true;
+                                  });
+                                },
+                              ),
+                            ],
                           );
-                        },
-                        isEditing: true,
-                        profile: profile,
-                      );
               } else if (state is ErrorState) {
                 return Container(
                   child: Text('not loaded'),

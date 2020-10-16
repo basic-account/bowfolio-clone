@@ -26,13 +26,13 @@ class Profile extends Equatable {
     String picture,
     List<String> interestIds,
     List<String> projectIds,
-  }) : this.first = first ?? 'first',
-       this.last = last ?? 'last',
-       this.bio = bio ?? 'bio',
-       this.title = title ?? 'title',
-       this.picture = picture ?? 'picture',
-       this.interestIds = interestIds ?? ['interest'],
-       this.projectIds = projectIds ?? ['project'];
+  }) : this.first = first ?? 'g',
+       this.last = last ?? 'g',
+       this.bio = bio ?? 'g',
+       this.title = title ?? 'g',
+       this.picture = picture ?? 'g',
+       this.interestIds = interestIds ?? ['g'],
+       this.projectIds = projectIds ?? ['g'];
 
   @override
   List<Object> get props =>

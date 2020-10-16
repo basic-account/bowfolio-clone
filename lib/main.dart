@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:user_repository/user_repository.dart';
 
+import 'bloc/add_profile/add_profile_cubit.dart';
 import 'bloc/simple_bloc_observer.dart';
 import 'bloc/profiles/profiles.dart';
 import 'bloc/interests/interests.dart';
@@ -44,7 +45,7 @@ void main() {
           create: (context) => AddProjectCubit(
             ProjectsRepository(),
           ),
-        )
+        ),
       ],
       child: BowfoliosApp(
         authenticationRepository: AuthenticationRepository(),

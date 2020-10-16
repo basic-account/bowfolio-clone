@@ -30,11 +30,13 @@ class ProfileItem extends StatelessWidget {
               trailing: Container(
                 height: 40,
                 width: 40,
-                decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    image: DecorationImage(
-                        image: NetworkImage(profile.picture),
-                        fit: BoxFit.cover)),
+                child: Container(
+                  child: FadeInImage(
+                    image: NetworkImage(profile.picture),
+                    placeholder: NetworkImage(
+                        'https://socialnewsdaily.com/wp-content/uploads/2018/07/dog-having-a-good-day.jpg'),
+                  ),
+                ),
               ),
             ),
             Padding(

@@ -66,4 +66,39 @@ class ProfilesRepository {
       throw e;
     }
   }
+
+    Future<List<Profile>> addOrUpdateProfile({
+    String first,
+    String last,
+    String email,
+    String title, 
+    String bio,
+    String picture,
+    List<String> interestIds,
+    List<String> projectIds,
+    //Profile profile
+  }) async {
+    try {
+      Profile profile = Profile(
+          first: first,
+          last: last,
+          email: email,
+          bio: bio,
+          title: title,
+          picture: picture,
+          interestIds: interestIds,
+          projectIds: projectIds);
+
+      int index = _profiles.indexWhere((element) => element.email.compareTo(profile.email) == 0);
+
+      if (index == -1)
+        _profiles.add(profile);
+      else
+        _profiles.replaceRange(index, index + 1, [profile]);
+
+      return _profiles;
+    } catch (e) {
+      throw e;
+    }
+  }
 }

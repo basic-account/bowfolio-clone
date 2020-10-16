@@ -19,4 +19,14 @@ class InterestsCubit extends Cubit<InterestsState> {
       emit(InterestsErrorState());
     }
   }
+
+  void profileUpdatedInterests(String email, List<String> interestIds) async {
+        try {
+      emit(InterestsLoadingState());
+      final interests = await repository.profileUpdatedInterests(email, interestIds);
+      emit(InterestsLoadedState(interests));
+    } catch (e) {
+      emit(InterestsErrorState());
+    }
+  }
 }

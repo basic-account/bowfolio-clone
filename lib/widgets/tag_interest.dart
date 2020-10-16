@@ -57,7 +57,7 @@ class _TagInterestState extends State<TagInterest> {
                     onPressed: () {
                       context
                           .bloc<ProfilesCubit>()
-                          .updateProfile(widget.profile.copyWith(
+                          .updateProfile(//widget.profile.copyWith(
                             first: widget.profile.first,
                             last: widget.profile.last,
                             email: widget.profile.email,
@@ -66,7 +66,7 @@ class _TagInterestState extends State<TagInterest> {
                             picture: widget.profile.picture,
                             interestIds:[...widget.profile.interestIds, interest.interest],
                             projectIds: widget.profile.projectIds,
-                          ));
+                          );
                     },
                   );
                 },
